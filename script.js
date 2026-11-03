@@ -1,3 +1,10 @@
+// Muestra cada console.log también en el panel de la página.
+const logOriginal = console.log.bind(console);
+console.log = (...valores) => {
+  logOriginal(...valores);
+  const texto = valores.map((valor) => typeof valor === "object" && valor !== null ? JSON.stringify(valor) : String(valor)).join(" ");
+  document.getElementById("output").textContent += texto + "\n";
+};
 //1.VARIABLES
 const nombre = "Lucía"; //no se puede reasignar
 let edad = 18;    //se puede reasignar
@@ -156,6 +163,11 @@ const datos = [
   puedeIngresar
 ];
 console.log("Array de datos:", datos); // Muestra en consola todos los datos agrupados.
+
+
+
+
+
 
 
 
