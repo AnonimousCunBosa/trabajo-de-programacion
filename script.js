@@ -90,9 +90,10 @@ const numeros = [1, 2, 3];
       edad1 **= 2; // Equivale a edad1 = edad1 ** 2.
       console.log(`Después de **= 2: ${edad1}`);
 
-// 4. STRING METHODS (métodos para trabajar con texto)
+// 4. STRING METHODS 
 // Los strings no se modifican directamente: cada método devuelve un nuevo resultado.
 const textoOriginal = "  JavaScript es interesante  ";
+console.log(textoOriginal)
 
 // trim quita espacios solo de los extremos; resulta útil al limpiar datos ingresados.
 const textoLimpio = textoOriginal.trim();
@@ -107,10 +108,6 @@ console.log("toLowerCase():", textoMinusculas);
 // includes comprueba si existe un fragmento de texto y devuelve true o false.
 const contieneJavaScript = textoLimpio.includes("JavaScript");
 console.log("includes('JavaScript'):", contieneJavaScript);
-
-// indexOf devuelve el índice donde empieza el fragmento; devuelve -1 si no lo encuentra.
-const posicionInteresante = textoLimpio.indexOf("interesante");
-console.log("indexOf('interesante'):", posicionInteresante);
 
 // replace devuelve una copia donde se reemplaza la primera coincidencia indicada.
 const textoReemplazado = textoLimpio.replace("interesante", "poderoso");
@@ -143,7 +140,7 @@ console.log("¿Es mayor de edad?:", esMayorDeEdad);
 console.log("¿Las edades son iguales?:", edadesIguales);
 console.log("¿Puede ingresar? (mayor de edad y estudiante):", puedeIngresar);
 
-// Crear el array usando las variables
+// Crear el array 
 const datos = [
   nombre,
   edad,
@@ -160,47 +157,6 @@ const datos = [
 ];
 console.log("Array de datos:", datos); // Muestra en consola todos los datos agrupados.
 
-// 6. CONEXIÓN CON index.html
-// Buscamos los elementos por sus id; el botón ejecuta la presentación en pantalla.
-const botonEjecutar = document.querySelector("#runButton");
-const areaResultados = document.querySelector("#output");
 
-if (botonEjecutar && areaResultados) {
-  botonEjecutar.addEventListener("click", () => {
-    // Convertimos los resultados en texto legible; JSON.stringify también muestra objetos y arrays.
-    const resultados = {
-      variables: { nombre, edad, anio: año, ciudad },
-      tiposDeDatos: { nombre1, edad1, esEstudiante, direccion, telefono, lugar },
-      aritmetica: {
-        proximoano, sumaNumeros, anoanterior, restanumeros, doble,
-        multiplicar, mitad, divisionNumeros, residuo, edadAlCuadrado
-      },
-      comparaciones: {
-        igualA19: edad2 === 19,
-        diferenteDe18: edad2 !== 18,
-        mayorDe18: edad2 > 18,
-        menorDe21: edad2 < 21,
-        mayorOIgualA19: edad2 >= 19,
-        menorOIgualA18: edad2 <= 18
-      },
-      metodosDeStrings: {
-        original: textoOriginal,
-        limpio: textoLimpio,
-        mayusculas: textoMayusculas,
-        minusculas: textoMinusculas,
-        contieneJavaScript,
-        posicionInteresante,
-        reemplazado: textoReemplazado,
-        fragmento,
-        palabras,
-        empiezaConJava,
-        terminaConInteresante
-      },
-      arrayDeDatos: datos
-    };
-
-    areaResultados.textContent = JSON.stringify(resultados, null, 2);
-  });
-}
 
 
